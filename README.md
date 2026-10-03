@@ -341,7 +341,10 @@ qwen-index-proxy/
 ├── .gitignore
 ├── proxy.py
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+├── requirements-dev.txt
+└── tests/
+    └── test_messages.py
 ```
 
 ### `proxy.py`
@@ -355,6 +358,28 @@ Defines the direct Python dependencies required to run the proxy.
 ### `.gitignore`
 
 Prevents generated Python files, local environments, environment-variable files, logs, editor-specific files, and other local artifacts from entering version control.
+
+## Testing
+
+Unit tests currently cover message normalization for:
+
+- Conversations with no system messages
+- Conversations with one system message
+- Conversations with multiple system messages
+- Preservation of non-system message ordering
+- Combination and repositioning of system messages
+
+Install the development dependencies:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+Run the test suite:
+
+```bash
+python -m pytest -v
+```
 
 ## Current Limitations
 
@@ -376,8 +401,8 @@ Current limitations include:
 
 Potential next steps include:
 
-- [ ] Add unit tests for message normalization
-- [ ] Test zero, one, and multiple system-message cases
+- [x] Add unit tests for message normalization
+- [x] Test zero, one, and multiple system-message cases
 - [ ] Add integration tests for streaming and non-streaming requests
 - [ ] Improve upstream HTTP error propagation
 - [ ] Add graceful handling when llama-server is unavailable
