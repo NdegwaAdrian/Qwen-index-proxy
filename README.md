@@ -173,11 +173,9 @@ The development environment used for this project was:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd qwen-index-proxy
+git clone https://github.com/NdegwaAdrian/Qwen-index-proxy.git
+cd Qwen-index-proxy
 ```
-
-Replace `<repository-url>` with the repository URL once the project has been published.
 
 ### 2. Create the Python Environment
 
@@ -389,7 +387,7 @@ Current limitations include:
 
 - No authentication or authorization layer
 - No rate limiting
-- No automated test suite yet
+- Automated tests currently cover message normalization; API forwarding and streaming paths still need integration tests.
 - Limited upstream error handling
 - No structured application logging
 - Server configuration is currently defined directly in the source code
